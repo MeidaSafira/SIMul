@@ -1,0 +1,43 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="uk-flex">
+            <span class="uk-width-expand"></span>
+            <button mat-flat-button color="primary" (click)="listsiswaDetail({},-1)">Tambah Data</button>
+        </div>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <thead>
+                <th>NO</th>
+                <th>NAMA</th>
+                <th>KELAS</th>
+                <th>MAPEL</th>
+                <th>TELEPON</th>
+                <th>EMAIL</th>
+                <th align="right">Aksi</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let siswa of siswaa; let idx=index">
+                    <td>{{idx+1}}</td>
+                    <td>{{siswa.nama}}</td>
+                    <td>{{siswa.kelas}}</td>
+                    <td>{{siswa.mapel}}</td>
+                    <td>{{siswa.hp}}</td>
+                    <td>{{siswa.email}}</td>
+                    <td align="right">
+                        <button mat-mini-fab color="primary" (click)="listsiswaDetail(siswa,idx)">
+                            <mat-icon>border_color</mat-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button mat-mini-fab color="warn" (click)="deleteListsiswa(idx)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </mat-card-content>
+</mat-card>
